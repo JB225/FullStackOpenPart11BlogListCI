@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const mongoose = require('mongoose')
 const helper = require('./blog_api_test_helper')
 const supertest = require('supertest')
