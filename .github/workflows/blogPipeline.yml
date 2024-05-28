@@ -22,8 +22,11 @@ jobs:
         run: |
           touch .env
           echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
+          echo -en '\n' >> .env
           echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
+          echo -en '\n' >> .env
           echo PORT=3003 >> .env
+          echo -en '\n' >> .env
           echo SECRET=${{ secrets.SECRET }}  >> .env
           ls
           cat .env
