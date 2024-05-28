@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { act } from 'react'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -24,11 +24,14 @@ describe('<Blog />', () => {
     mockUpdatedBlogHandler = jest.fn()
     const mockDeletedBlogHandler = jest.fn()
 
-    container = render(<Blog key={blog.id}
-      blog={blog}
-      username={'test username'}
-      handleUpdatedBlog={mockUpdatedBlogHandler}
-      handleDeletedBlog={mockDeletedBlogHandler} />).container
+    act(() => {
+      container = render(<Blog key={blog.id}
+        blog={blog}
+        username={'test username'}
+        handleUpdatedBlog={mockUpdatedBlogHandler}
+        handleDeletedBlog={mockDeletedBlogHandler} />).container
+    })
+
   })
 
   test('renders blog title and author only', () => {
@@ -42,7 +45,7 @@ describe('<Blog />', () => {
   test('blog url and likes shown when button clicked', async () => {
     const user = userEvent.setup()
     const button = screen.getByText('view')
-    await user.click(button)
+    await act( async () => { await user.click(button) })
 
     const elementURL = screen.getByText(blog.url)
     const elementLikes = screen.getByText('likes ' + blog.likes)
