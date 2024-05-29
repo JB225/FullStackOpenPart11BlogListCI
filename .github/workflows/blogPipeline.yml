@@ -26,8 +26,6 @@ jobs:
           echo PORT=3003 >> .env
           echo SECRET="${{ secrets.SECRET }}"  >> .env
           cat .env
-      - name: print directory
-        run: ls -a
       - name: unit tests
         run: npm run test
       - name: e2e tests

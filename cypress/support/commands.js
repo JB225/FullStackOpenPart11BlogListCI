@@ -33,7 +33,7 @@ Cypress.Commands.add('login', ({ username, password }) => {
     username: username, password: password
   }).then(response => {
     localStorage.setItem('loggedBlogAppUser', JSON.stringify(response.body))
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:3003')
   })
 })
 
@@ -47,7 +47,7 @@ Cypress.Commands.add('createBlog', ({ title, author, url }) => {
     }
   })
 
-  cy.visit('http://localhost:5173')
+  cy.visit('http://localhost:3003')
 })
 
 Cypress.Commands.add('createBlogWithLikes', ({ title, author, url, likes }) => {
@@ -60,5 +60,5 @@ Cypress.Commands.add('createBlogWithLikes', ({ title, author, url, likes }) => {
     }
   })
 
-  cy.visit('http://localhost:5173')
+  cy.visit('http://localhost:3003')
 })
