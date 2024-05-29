@@ -1,6 +1,9 @@
 require('dotenv').config()
 
-console.log('Env ' + JSON.stringify(process.env))
+console.log('Secret ' + process.env.SECRET)
+console.log('Mongo ' + process.env.MONGODB_URI)
+console.log('MongoTest ' + process.env.TEST_MONGODB_URI)
+console.log('Port ' + process.env.PORT)
 
 const PORT = process.env.PORT
 const MONGODB_URI = process.env.NODE_ENV === 'test'
