@@ -3,7 +3,7 @@ import ErrorNotification from './ErrorNotification'
 const LoginForm = ({ handleLogin, username, setUsername, password, setPassword, errorMessage }) => {
   return (
     <div>
-      <h2>Log in to application</h2>
+      <h2>Log In To Application</h2>
       <ErrorNotification message={errorMessage}/>
       <form onSubmit = {handleLogin}>
         <div>
