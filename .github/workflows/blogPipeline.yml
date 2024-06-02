@@ -3,10 +3,9 @@ on:
   push:
     branches:
       - main
-      - changes
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize]
+    pull_request:
+      branches: [main]
+      types: [opened, synchronize]
 
 jobs:
   blog_deployment_pipeline:
