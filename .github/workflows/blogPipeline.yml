@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - changes
   pull_request:
     branches: [main]
     types: [opened, synchronize]
@@ -41,6 +40,9 @@ jobs:
       - name: Trigger deployment
         if: ${{ github.event_name == 'push' && !contains(toJson(github.event.head_commit.message), '#skip' ) }}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+      - name: fix branch issue
+        if: github.ref != 'refs/heads/main'
+        run: git rev-parse --verify main || git remote set-branches origin main && git fetch --depth 1 origin main && git branch main origin/main
 
   tag_release:
     needs: [blog_deployment_pipeline]
