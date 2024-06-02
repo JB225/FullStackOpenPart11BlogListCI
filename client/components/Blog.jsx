@@ -31,7 +31,7 @@ const Blog = ({ blog, username, handleUpdatedBlog, handleDeletedBlog }) => {
   }
 
   const handleDeleteBlog = async() => {
-    if (window.confirm(`Remove blog ${blog.title} by ${blog.author}`)) {
+    if (window.confirm(`Remove Blog ${blog.title} by ${blog.author}`)) {
       blogService.deleteBlog(blog.id)
       handleDeletedBlog(blog.id)
     }
