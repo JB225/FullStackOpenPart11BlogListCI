@@ -72,7 +72,7 @@ const App = () => {
       setTimeout(() => {
         setSucessMessage(null)}, 5000)
     } catch (exception) {
-      setErrorMessage('New blog could not be created')
+      setErrorMessage('Invalid Input: New blog could not be created')
       setTimeout(() => {
         setErrorMessage(null)}, 5000)
     }
