@@ -12,8 +12,8 @@ describe('Blog app', () => {
 
   it('Login form is shown', function() {
     cy.contains('Log In To Application')
-    cy.contains('username')
-    cy.contains('password')
+    cy.contains('Username:')
+    cy.contains('Password:')
     cy.contains('login')
   })
 
