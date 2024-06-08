@@ -7,7 +7,7 @@ const LoginForm = ({ handleLogin, username, setUsername, password, setPassword, 
       <ErrorNotification message={errorMessage}/>
       <form onSubmit = {handleLogin}>
         <div>
-            username <input
+            Username: <input
             id='username'
             type="text"
             value={username}
@@ -15,7 +15,7 @@ const LoginForm = ({ handleLogin, username, setUsername, password, setPassword, 
             onChange={({ target }) => setUsername(target.value)}/>
         </div>
         <div>
-            password <input
+            Password: <input
             id='password'
             type="text"
             value={password}
